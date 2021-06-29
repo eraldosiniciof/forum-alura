@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo da Adivinhação!</title>
+    <link rel="stylesheet" href="estilo.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Jogo da Adivinhação!</h1>
+    </header>
+
+    <section>
+      <div id="adivinha">
+        <p>
+          O computador pensará em um número de 0 a 1000! Tente adivinhar em qual
+          número o computador pensou!
+        </p>
+        <p>
+          Insira aqui seu chute:
+          <input type="number" name="chute" id="chute" />
+          <input
+            type="button"
+            id="btn"
+            value="Adivinhar!"
+            onclick="adivinhar()"
+          />
+        </p>
+      </div>
+      <div id="res"></div>
+      <div>
+        <input
+          type="button"
+          value="Tentar Novamente"
+          onclick="tentarnovamente()"
+        />
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy;YuriWada</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

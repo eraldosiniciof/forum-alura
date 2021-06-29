@@ -1,0 +1,77 @@
+<html>
+  <meta charset="UTF-8" />
+  <body>
+    <input />
+
+    <button>Adivinhe o numero</button>
+
+    <footer></footer>
+
+    <script>
+      function pulaLinha() {
+        document.write('<br><hr><br>')
+      }
+
+      function footerMostra(frase) {
+        const footer = document.querySelector('footer')
+        footer.textContent = frase
+        pulaLinha
+      }
+
+      function sorte() {
+        return Math.round(Math.random() * 30)
+      }
+
+      function numeroDeSorte(quantidade) {
+        var bolaDaVez = []
+        var chance = 1
+
+        while (chance <= quantidade) {
+          var sorteAleatoria = sorte()
+          var encontrou = false
+
+          if (sorteAleatoria !== 0) {
+            for (var posicao = 0; posicao < bolaDaVez.length; posicao++) {
+              if (bolaDaVez[posicao] == sorteAleatoria) {
+                encontrou = true
+                break
+              }
+            }
+            if (encontrou == false) {
+              bolaDaVez.push(sorteAleatoria)
+              chance++
+            }
+          }
+        }
+        return bolaDaVez
+      }
+
+      var bolaDaVez = numeroDeSorte(5)
+
+      console.log(bolaDaVez)
+
+      var input = document.querySelector('input')
+      input.focus()
+
+      function verifica() {
+        var achou = false
+
+        for (var posicao = 0; posicao < bolaDaVez.length; posicao++) {
+          if (input.value == bolaDaVez[posicao]) {
+            footerMostra('Você ACERTOU')
+            achou = true
+            break
+          }
+        }
+        if (achou == false) {
+          footerMostra('Você ERROU!')
+        }
+        input.value = ''
+        input.focus()
+      }
+
+      var button = document.querySelector('button')
+      button.onclick = verifica
+    </script>
+  </body>
+</html>
