@@ -15,12 +15,18 @@ function adivinhar() {
   } else {
     res.innerHTML = `OPS! Você errou!<br>O número pensado pelo computador foi ${numeroPensado}!!`
   }
-}
 
-function tentarnovamente() {
-  let res = document.getElementById('res')
-  let chute = document.getElementById('chute')
-  res.innerHTML = []
-  chute.value = ``
-  chute.focus()
+  const btn = document.createElement('button')
+  const br = document.createElement('br')
+  btn.textContent = 'Tentar novamente'
+  res.appendChild(br)
+  res.appendChild(btn)
+
+  btn.addEventListener('click', () => {
+    let res = document.getElementById('res')
+    let chute = document.getElementById('chute')
+    res.innerHTML = []
+    chute.value = ``
+    chute.focus()
+  })
 }
