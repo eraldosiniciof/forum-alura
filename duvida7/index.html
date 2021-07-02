@@ -20,20 +20,16 @@
         var segredos = []
         var numero = 1
         while (numero <= quantidade) {
-          var achou = false
           var numeroAleatorio = sorteia()
 
           for (posicao = 0; posicao < segredos.length; posicao++) {
             if (segredos[posicao] == numeroAleatorio) {
-              achou = true
               break
             }
           }
 
-          if (!achou) {
-            segredos.push(numeroAleatorio)
-            numero++
-          }
+          segredos.push(numeroAleatorio)
+          numero++
         }
         return segredos
       }
