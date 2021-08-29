@@ -1,0 +1,26 @@
+<html>
+  <body>
+    <script>
+      // Na const abaixo armazeno o nome do usuário
+      const nomeDoUsuario = prompt('Qual é o seu nome?')
+
+      // Na const abaixo armazeno o ano de nascimento do usuário
+      const anoDeNascimentoDoUsuario = prompt('Em que ano você nasceu?')
+
+      // Na const abaixo armazeno o ano atual em que estamos
+      const anoAtual = 2021
+
+      // Vou armazenar o resultado do calculo do ano atual menos o ano de nascimento do usuário, que será a sua idade.
+      const idadeDoUsuario = anoAtual - anoDeNascimentoDoUsuario
+
+      // Agora vamos exibir, na pagina html, o texto e os calculos que fizemos com o uso da variavel.
+      document.write(
+        'Olá ',
+        nomeDoUsuario,
+        ', verifiquei que você tem ',
+        idadeDoUsuario,
+        ' anos'
+      )
+    </script>
+  </body>
+</html>
