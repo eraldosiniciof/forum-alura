@@ -1,0 +1,36 @@
+<meta charset="UTF-8" />
+<script>
+
+  {
+    function pulaLinha() {
+
+          document.write("<br>");
+      }
+
+      function mostra(frase) {
+
+          document.write(frase);
+          pulaLinha();
+      }
+
+      var numeroPensado = Math.round(Math.random() * 10);
+      var vidas = 3;
+
+
+        function palpite (palpite) {
+      var palpite = prompt("De 0 á 10 em qual número eu estou pensando? você tem ") + vidas +
+  (" Chances");
+       return = palpite;
+  }
+
+        function checarVidas() {
+          if (vidas <= 3 && vidas >0) {
+            palpite
+          } else {
+            mostra("Poxa você não tem mais chances!");}
+   }
+    if (palpite == numeroPensado){
+  mostra ("Uau! Você acertou, eu pensei no " + numeroPensado);}
+    else { (vidas - 1) + checarVidas;}
+  }
+</script>
