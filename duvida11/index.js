@@ -10,10 +10,11 @@ while (primeiraChance <= ultimaChance) {
 
   if (loginCadastrado == loginInformado && senhaCadastrada == senhaInformada) {
     alert('Bem vindo ' + loginCadastrado)
-    primeiraChance = ultimaChance
+    primeiraChance = ultimaChance + 1
   } else {
     if (primeiraChance == 3) {
       alert('Numero de tentativas excedido.')
+      primeiraChance = ultimaChance + 1
     } else {
       alert('Login ou senha icorreto.')
       primeiraChance = primeiraChance + 1

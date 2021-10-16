@@ -1,0 +1,28 @@
+<meta charset="UTF-8" />
+<script>
+  const loginCadastrado = 'alura'
+  const senhaCadastrada = 'alura321'
+
+  let tentativa = 1
+
+  while (true) {
+    const loginInformado = prompt('Informe seu login')
+    const senhaInformada = prompt('Informe sua senha')
+
+    const verificado =
+      loginCadastrado == loginInformado && senhaCadastrada == senhaInformada
+
+    if (verificado) {
+      alert('Bem-vindo ao sistema ' + loginInformado)
+      break
+    } else {
+      if (tentativa == 3) {
+        alert('Você atingiu o número máximo de tentativas.')
+        break
+      } else {
+        alert('Login inválido. Tente novamente')
+        tentativa++
+      }
+    }
+  }
+</script>
