@@ -1,0 +1,38 @@
+<meta charset="utf-8" />
+
+<h1>Jogo da Adivinhação</h1>
+<hr />
+
+<script>
+  function pulaLinha() {
+    document.write("<br>");
+  }
+
+  function mostra(texto) {
+    document.write(texto);
+    pulaLinha();
+  }
+
+  function sorteio(n) {
+    return Math.round(Math.random() * n);
+  }
+
+  alert("Bem vindo ao Jogo da Adivinhação!");
+  var n = parseInt(
+    prompt("Escolha a dificuldade do jogo colocando o número limite do sorteio")
+  );
+  var numPensado = sorteio(n);
+  var chute = parseInt(
+    prompt("Adivinhe o número que estou pensando de 0 a " + n)
+  );
+
+  if (chute == numPensado) {
+    mostra("Parabéns, você acertou o número! A resposta era: " + numPensado);
+  } else {
+    if (chute > numPensado) {
+      mostra("Foi muito alto, tente novamente! A resposta era: " + numPensado);
+    } else {
+      mostra("Foi muito baixo, tente novamente! A resposta era: " + numPensado);
+    }
+  }
+</script>
