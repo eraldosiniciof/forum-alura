@@ -4,35 +4,39 @@
 <hr />
 
 <script>
-  function pulaLinha() {
-    document.write("<br>");
-  }
-
-  function mostra(texto) {
-    document.write(texto);
-    pulaLinha();
-  }
-
-  function sorteio(n) {
-    return Math.round(Math.random() * n);
-  }
+  const mostraEPula = (texto) => document.write(`${texto} <br />`);
+  const sorteio = (n) => Math.round(Math.random() * n);
+  const perguntarNumero = (pergunta) => parseInt(prompt(pergunta));
 
   alert("Bem vindo ao Jogo da Adivinhação!");
-  var n = parseInt(
-    prompt("Escolha a dificuldade do jogo colocando o número limite do sorteio")
-  );
-  var numPensado = sorteio(n);
-  var chute = parseInt(
-    prompt("Adivinhe o número que estou pensando de 0 a " + n)
-  );
 
-  if (chute == numPensado) {
-    mostra("Parabéns, você acertou o número! A resposta era: " + numPensado);
-  } else {
-    if (chute > numPensado) {
-      mostra("Foi muito alto, tente novamente! A resposta era: " + numPensado);
+  const n = perguntarNumero(
+    "Escolha a dificuldade do jogo colocando o número limite do sorteio"
+  );
+  const numPensado = sorteio(n);
+
+  let chute = perguntarNumero(
+    `Adivinhe o número que estou pensando de 0 a ${n}`
+  );
+  let acertou = false;
+  let tentativas = 1;
+
+  while (!acertou) {
+    acertou = chute === numPensado;
+    if (acertou) {
+      mostraEPula(
+        `Parabéns, você acertou o número!\nVocê tentou ${tentativas} vezes.`
+      );
+      break;
     } else {
-      mostra("Foi muito baixo, tente novamente! A resposta era: " + numPensado);
+      if (chute > numPensado) {
+        alert("Foi muito alto, tente novamente!");
+        tentativas++;
+      } else {
+        alert("Foi muito baixo, tente novamente!");
+        tentativas++;
+      }
     }
+    chute = perguntarNumero(`Adivinhe o número que estou pensando de 0 a ${n}`);
   }
 </script>
