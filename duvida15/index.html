@@ -2,7 +2,8 @@
 
 <h1>Jogo da Adivinhação</h1>
 <hr />
-
+<script src="./modoLivre.js"></script>
+<script src="./modoDesafiante.js"></script>
 <script>
   const mostraEPula = (texto) => document.write(`${texto} <br />`);
   const sorteioLivre = (n) => Math.round(Math.random() * n);
@@ -13,168 +14,25 @@
 
   alert("Bem vindo ao Jogo da Adivinhação!");
   alert("Selecione o modo de jogo.");
+  const perguntaModo = () =>
+    Number(prompt("[ 0 ] para modo livre\n[ 1 ] para modo desafiante"));
 
-  var modoJogo = prompt(
-    "Digite 0 para entrar no modo livre ou 1 para entrar no modo desafiante."
-  );
-
-  if (modoJogo == 0) {
-    const n = perguntarNumero("Escolha o número limite do sorteio");
-    const numPensado = sorteioLivre(n);
-    console.log(numPensado);
-
-    let chute = perguntarNumero(
-      `Adivinhe o número que estou pensando de 0 a ${n}`
-    );
-    let acertou = false;
-    let tentativas = 1;
-
-    while (!acertou) {
-      acertou = chute === numPensado;
-      if (acertou) {
-        mostraEPula(
-          `Parabéns, você acertou o número!\nVocê tentou ${tentativas} vezes.`
-        );
+  const iniciarJogo = (modo) => {
+    while (true) {
+      if (modo === 0) {
+        modoLivre();
         break;
-      } else {
-        if (chute > numPensado) {
-          alert("Foi muito alto, tente novamente!");
-          tentativas++;
-        } else {
-          alert("Foi muito baixo, tente novamente!");
-          tentativas++;
-        }
       }
-      chute = perguntarNumero(
-        `Adivinhe o número que estou pensando de 0 a ${n}`
-      );
-    }
-  }
-
-  if (modoJogo == 1) {
-    alert("Você entrou no modo desafiante, escolha uma dificuldade.");
-    var dificuldade = prompt(
-      "Digite o número referente à dificuldade: 1 - Fácil |2 - Médio |3 - Difícil"
-    );
-
-    if (dificuldade == 1) {
-      let acertou = false;
-      let vidas = 4;
-
-      alert(
-        "Estou pensando em um número de 0 a 10. Você tem 5 tentativas para acertá-lo!"
-      );
-      const numPensado = sorteioFacil();
-      console.log(numPensado);
-      let chute = perguntarNumero("Adivinhe o número que estou pensando");
-
-      while (!acertou || vidas != 0) {
-        acertou = chute === numPensado;
-        if (vidas == 0) {
-          mostraEPula("Que pena, você perdeu todas as vidas! T-T");
-          break;
-        }
-        if (acertou == true) {
-          vidas++;
-          mostraEPula(
-            "Parabéns, você acertou o número! Você manteve " + vidas + " vidas!"
-          );
-          break;
-        } else {
-          if (chute > numPensado) {
-            alert(
-              "Foi muito alto, tente novamente! " + vidas + " vidas restantes!"
-            );
-            vidas--;
-          } else {
-            alert(
-              "Foi muito baixo, tente novamente! " + vidas + " vidas restantes!"
-            );
-            vidas--;
-          }
-        }
-        chute = perguntarNumero();
+      if (modo === 1) {
+        modoDesafiante();
+        break;
+      }
+      if (modo !== 0 && modo !== 1) {
+        alert("Número de modo de jogo errado. Tente novamente.");
+        modo = perguntaModo();
       }
     }
+  };
 
-    if (dificuldade == 2) {
-      let acertou = false;
-      let vidas = 9;
-
-      alert(
-        "Estou pensando em um número de 0 a 100. Você tem 10 tentativas para acertá-lo!"
-      );
-      const numPensado = sorteioMedio();
-      console.log(numPensado);
-      let chute = perguntarNumero("Adivinhe o número que estou pensando");
-
-      while (!acertou || vidas != 0) {
-        acertou = chute === numPensado;
-        if (vidas == 0) {
-          mostraEPula("Que pena, você perdeu todas as vidas! T-T");
-          break;
-        }
-        if (acertou == true) {
-          vidas++;
-          mostraEPula(
-            "Parabéns, você acertou o número! Você manteve " + vidas + " vidas!"
-          );
-          break;
-        } else {
-          if (chute > numPensado) {
-            alert(
-              "Foi muito alto, tente novamente! " + vidas + " vidas restantes!"
-            );
-            vidas--;
-          } else {
-            alert(
-              "Foi muito baixo, tente novamente! " + vidas + " vidas restantes!"
-            );
-            vidas--;
-          }
-        }
-        chute = perguntarNumero();
-      }
-    }
-
-    if (dificuldade == 3) {
-      let acertou = false;
-      let vidas = 4;
-
-      alert(
-        "Estou pensando em um número de 0 a 100. Você tem 5 tentativas para acertá-lo!"
-      );
-      const numPensado = sorteioDificil();
-      console.log(numPensado);
-      let chute = perguntarNumero("Adivinhe o número que estou pensando");
-
-      while (!acertou || vidas != 0) {
-        acertou = chute === numPensado;
-        if (vidas == 0) {
-          mostraEPula("Que pena, você perdeu todas as vidas! T-T");
-          break;
-        }
-        if (acertou == true) {
-          vidas++;
-          mostraEPula(
-            "Parabéns, você acertou o número! Você manteve " + vidas + " vidas!"
-          );
-          break;
-        } else {
-          if (chute > numPensado) {
-            alert(
-              "Foi muito alto, tente novamente! " + vidas + " vidas restantes!"
-            );
-            vidas--;
-          } else {
-            alert(
-              "Foi muito baixo, tente novamente! " + vidas + " vidas restantes!"
-            );
-            vidas--;
-          }
-        }
-        chute = perguntarNumero();
-      }
-    }
-  }
+  iniciarJogo(perguntaModo());
 </script>
