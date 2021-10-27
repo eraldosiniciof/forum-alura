@@ -1,21 +1,37 @@
-<body>
-  <header>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
       <div class="container">
-          <h1>café <br> da manhã</h1>
+        <h1>café da manhã</h1>
       </div>
       <div class="container">
-          <h2>o que você vai querer compartilhar nessa refeição com seus colegas?</h2>
+        <h2>
+          o que você vai querer compartilhar nessa refeição com seus colegas?
+        </h2>
       </div>
-  </header>
-  <main>
+    </header>
+    <main>
       <section class="container">
-          <form name="cadastro">
-              <input type="text" id="nome" placeholder="nome*"></input>
-              <input type="text" id="cpf" placeholder="CPF*"></input>
-              <input type="text" id="comida" placeholder="comida*"></input>
-              <button onClick="adicionarPessoa()"><a href="pag2.html" id="listaPessoas">submeter</a></button>
-          </form>
+        <form name="cadastro">
+          <input type="text" id="nome" placeholder="nome*" />
+          <input type="text" id="cpf" placeholder="CPF*" />
+          <input type="text" id="comida" placeholder="comida*" />
+          <button id="listaPessoas">
+            <a href="pag2.html">submeter</a>
+          </button>
+        </form>
       </section>
-      <p>ainda não viu a lista de comidas?<a href="pag3.html" id="listaPessoas"> confira aqui</a></p>
-  </main>
-</body>
+      <p>
+        ainda não viu a lista de comidas?<a href="pag3.html"> confira aqui</a>
+      </p>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>

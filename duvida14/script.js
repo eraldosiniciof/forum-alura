@@ -1,7 +1,14 @@
-function adicionarPessoa() {
+function listarPessoasNaTela() {
+  var listaPessoas = documet.querySelector('#listaPessoas')
+  listaPessoas.innerHTML
+}
+
+document.querySelector('#listaPessoas').addEventListener('click', ev => {
+  ev.preventDefault()
+
   var campoNome = document.querySelector('#nome')
   var nome = campoNome.value
-  if ((nome = string)) {
+  if (typeof nome == 'string') {
     listarNomesNaTela(nome)
   } else {
     alert('nome inválido')
@@ -10,7 +17,7 @@ function adicionarPessoa() {
 
   var campoCpf = document.querySelector('#cpf')
   var cpf = campoCpf.value
-  if ((cpf = string)) {
+  if (typeof cpf == 'string') {
     listarCpfNaTela(cpf)
   } else {
     alert('cpf inválido')
@@ -19,7 +26,7 @@ function adicionarPessoa() {
 
   var campoComida = document.querySelector('#comida')
   var comida = campoComida.value
-  if ((comida = string)) {
+  if (typeof comida == 'string') {
     listarComidaNaTela(comida)
   } else {
     alert('comida inválido')
@@ -27,9 +34,4 @@ function adicionarPessoa() {
   campoComida.value = ''
 
   listarPessoasNaTela = listarNomesNaTela + listarCpfNaTela + listarComidaNaTela
-}
-
-function listarPessoasNaTela() {
-  var listaPessoas = documet.querySelector('#listaPessoas')
-  listaPessoas.innerHTML
-}
+})
