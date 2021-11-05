@@ -1,0 +1,55 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+body {
+  font-family: sans-serif;
+  background-color: rgb(49, 49, 49);
+  color: #fff;
+}
+h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 40vw;
+  margin: auto;
+}
+input {
+  font-size: 1.1rem;
+  padding: 10px;
+  border-radius: 3px;
+  border: 0;
+  outline: none;
+  margin-bottom: 20px;
+}
+.botoes {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cadastro,
+.limpa {
+  width: 15vw;
+  padding: 10px;
+  font-size: 1.1rem;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+}
+.cadastro {
+  background-color: rgb(0, 143, 0);
+}
+.limpa {
+  background-color: rgb(95, 95, 95);
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+}
