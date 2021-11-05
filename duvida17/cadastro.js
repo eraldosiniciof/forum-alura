@@ -39,5 +39,6 @@ $("#cadastro").addEventListener("click", (ev) => {
   const string = JSON.stringify(usuarioCadastrado);
   localStorage.setItem("usuario", string);
 
-  nome.value = "";
+  alert("Cadastro realizado com sucesso!");
+  window.location.href = "./login.html";
 });
