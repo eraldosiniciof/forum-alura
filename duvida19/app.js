@@ -1,5 +1,22 @@
 const custoPorKm = [];
 
+function criarTabela(...params) {
+  const table = document.createElement("table");
+  const tbody = document.createElement("tbody");
+
+  table.appendChild(tbody);
+
+  const trElement = document.createElement("tr");
+
+  params.forEach((item) => {
+    const tdElement = document.createElement("td");
+    tdElement.innerHTML = item;
+    trElement.appendChild(tdElement);
+    tbody.appendChild(trElement);
+    document.getElementById("tabela").appendChild(tbody);
+  });
+}
+
 function calcular() {
   let select = document.getElementById("combustiveis");
   let option = select.options[select.selectedIndex].text;
@@ -12,44 +29,18 @@ function calcular() {
   let mediaKm = kmRodados / quantLitros;
   let custoKm = (kmRodados / valorTotal).toFixed(2);
 
-  let table = document.createElement("table");
-  let tbody = document.createElement("tbody");
+  criarTabela(
+    option,
+    kmInicial,
+    kmFinal,
+    quantLitros,
+    valorUnit,
+    valorTotal,
+    kmRodados,
+    mediaKm,
+    custoKm
+  );
 
-  table.appendChild(tbody);
-
-  let linha2 = document.createElement("tr");
-  let combustivel = document.createElement("td");
-  combustivel.innerHTML = option;
-  let inicialKm = document.createElement("td");
-  inicialKm.innerHTML = kmInicial;
-  let finalKm = document.createElement("td");
-  finalKm.innerHTML = kmFinal;
-  let litrosQtd = document.createElement("td");
-  litrosQtd.innerHTML = quantLitros;
-  let untValor = document.createElement("td");
-  untValor.innerHTML = valorUnit;
-  let totalValor = document.createElement("td");
-  totalValor.innerHTML = valorTotal;
-  let kmTotal = document.createElement("td");
-  kmTotal.innerHTML = kmRodados;
-  let kmMedia = document.createElement("td");
-  kmMedia.innerHTML = mediaKm;
-  let kmCusto = document.createElement("td");
-  kmCusto.innerHTML = custoKm;
-
-  linha2.appendChild(combustivel);
-  linha2.appendChild(inicialKm);
-  linha2.appendChild(finalKm);
-  linha2.appendChild(litrosQtd);
-  linha2.appendChild(untValor);
-  linha2.appendChild(totalValor);
-  linha2.appendChild(kmTotal);
-  linha2.appendChild(kmMedia);
-  linha2.appendChild(kmCusto);
-  tbody.appendChild(linha2);
-
-  document.getElementById("tabela").appendChild(tbody);
-  // logo abaixo do document.getElementById("tabela").appendChild(tbody), dentro da função calcular
   custoPorKm.push(Number(custoKm));
 }
 
