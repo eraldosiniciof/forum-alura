@@ -1,0 +1,42 @@
+<body id="body">
+  <div class="container">
+    <h1 class="page-title">CALCULADORA MEDIA COMBUSTIVEL</h1>
+    Selecione o tipo de Combustivel:
+    <select id="combustiveis">
+      <option value="gasolina">Gasolina</option>
+      <option value="etanol">Etanol</option>
+      <option value="diesel">Diesel</option>
+      <option value="dieselS10">DIesel S10</option>
+    </select>
+    <p class="quilometragem">Informe a Km Inicial</p>
+    <input type="number" id="kmInicial" placeholder="Digite aqui" /><br />
+    <p class="quilometragem">Informe a Km Final</p>
+    <input type="number" id="kmFinal" placeholder="Digite aqui" /><br />
+    <p class="litros">Informe a Quantidade de Litros</p>
+    <input type="number" id="qtdLitros" placeholder="Digite aqui" /><br />
+    <p class="valor">Informe o valor total gasto</p>
+    <input type="number" id="valorTotal" placeholder="Digite aqui" /><br />
+    <button type="submit" onclick="calcular()">CALCULAR</button>
+    <!-- logo abaixo do botao CALCULAR -->
+    <button type="submit" id="btnMedia">CALCULAR MEDIA</button>
+  </div>
+  <script src="app.js"></script>
+
+  <div class="relatorio">
+    <table id="tabela" border="1px" cellpadding="5px" cellspacing="0">
+      <tr class="cabecalho">
+        <td>Combustivel</td>
+        <td>Km Inicial</td>
+        <td>Km Final</td>
+        <td>Qt Litros</td>
+        <td>Valor/Lt</td>
+        <td>Valor Total</td>
+        <td>Km Rodados</td>
+        <td>Media/Km</td>
+        <td>Custo/Km</td>
+      </tr>
+    </table>
+    <!-- logo abaixo do </table> -->
+    <div id="mediaCustoPorKm"></div>
+  </div>
+</body>
