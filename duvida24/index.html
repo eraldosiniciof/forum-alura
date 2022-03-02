@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var ano = 2022;
+      var idadeBrasil = ano - 1500;
+      var geracoes = Math.round(idadeBrasil / 28) - 1;
+
+      function pulaLinha() {
+        document.write("<br>");
+      }
+
+      function titulo(título) {
+        document.write("<h3>" + título + "</h3>");
+        pulaLinha();
+      }
+      function texto(texto) {
+        document.write(texto);
+        pulaLinha();
+      }
+
+      function anosGeracoes() {
+        for (var i = 1; i <= geracoes; i++) {
+          var anos = 1500 + i * 28;
+          document.write(anos + "; ");
+        }
+      }
+
+      titulo("Quantas gerações tiveram no Brasil desde 1500 até " + ano + "?");
+      texto(
+        "Bom, desde a chegada oficial dos portugueses passaram-se " +
+          idadeBrasil +
+          " anos."
+      );
+      texto(
+        "Se uma nova geração nasce a cada 28 anos, então houve, até o presente momento, " +
+          geracoes +
+          " gerações."
+      );
+      texto("Foram elas nos anos: ");
+      texto(anosGeracoes());
+    </script>
+  </body>
+</html>
